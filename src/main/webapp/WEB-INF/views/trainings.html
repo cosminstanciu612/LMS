@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Title</title>
+</head>
+<body>
+
+<!--/*@thymesVar id="trainings" type="java.util.List<ro.licenta.domain.Training>"*/-->
+<p th:each="training : ${trainings}">
+   th:text="${training.trainerName}">
+   th:text="${training.subject}">
+   th:text="${training.description}">
+   th:text="${training.date}">
+</p>
+
+    <!--/*@thymesVar id="trainingForm" type="ro.licenta.domain.Training"*/-->
+    <form action="#" th:action="@{/training/add}" th:object="${trainingForm}" method="post">
+        Trainer name: <input type="text" th:field="*{trainerName}"/>
+        Subject: <input type="text" th:field="*{subject}"/>
+        Description: <input type="text" th:field="*{description}"/>
+        Date: <input type="datetime-local" th:field="*{date}"/>
+        <input type="submit" value="Add"/>
+    </form>
+</body>
+</html>

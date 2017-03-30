@@ -1,6 +1,8 @@
 package ro.licenta.domain;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -26,6 +28,8 @@ public class Training {
     private String description;
 
     @NotNull
+    @DateTimeFormat(pattern = "dd-MM-yyyy'T'hh:mm")
+    @Column(name = "training_date")
     private Date date;
 
     public Training() {
